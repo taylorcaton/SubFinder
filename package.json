@@ -1,0 +1,29 @@
+{
+  "name": "SubFinder",
+  "version": "1.0.0",
+  "description": "Helps teachers find available substitutes who have an emergency or are too sick to call.",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.3",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylorcaton/SubFinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylorcaton/SubFinder/issues"
+  },
+  "homepage": "https://github.com/taylorcaton/SubFinder#readme"
+}
