@@ -27,22 +27,25 @@ const UserPass = props => (
           />
 
           <div className="text-center">
-            <div className="btn-group-justified" data-toggle="buttons">
-              <label className="btn btn-primary active">
+            <div
+              className="btn-group-justified"
+              onChange={event => props.handleInputChange(event)}
+            >
+              <label className="btn btn-primary">
                 <input
-                  value={props.userType}
-                  onChange={props.handleInputChange}
+                  value="Teacher"
                   type="radio"
                   name="userType"
+                  checked={props.userType === "Teacher"}
                 />
                 Teacher
               </label>
               <label className="btn btn-primary">
                 <input
-                  value={props.userType}
-                  onChange={props.handleInputChange}
+                  value="Sub"
                   type="radio"
                   name="userType"
+                  checked={props.userType === "Sub"}
                 />
                 Sub
               </label>
@@ -54,7 +57,7 @@ const UserPass = props => (
 
           <div className="text-center">
             <div
-              disabled={!(props.userName && props.userPass)}
+              disabled={!(props.userName && props.userPass && props.userType)}
               onClick={props.handleFormSubmit}
               className="btn btn-danger btn-lg"
             >
