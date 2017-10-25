@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import UserPass from "../../components/UserPass";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 class Login extends Component {
   state = {
     userName: "",
     userPass: "",
-    userType: ""
+    userType: "",
+    invalidLogin: false
   };
 
   handleInputChange = event => {
@@ -24,8 +26,20 @@ class Login extends Component {
     console.log(`This is where the login call will go!`);
     console.log(`Server is looking for a ${this.state.userType} named ${this.state.userName} using ${this.state.userPass}`);
 
-    if (this.state.userName && this.state.userPass && this.state.userType=='Sub') {
-      API.loginSubstitute(this.state.userName).then(res => console.log(res));
+    if (this.state.userName && this.state.userPass && this.state.userType==='Sub') {
+      API.loginSubstitute(this.state.userName).then(res => {
+
+        // console.log(res.data[0].password);
+        if(res.data.length > 0 && res.data[0].password === this.state.userPass){
+          this.setState({invalidLogin: false})
+          console.log("USER VERIFIED");
+          window.location = '/sub';
+        }else{
+          this.setState({invalidLogin: true})
+          console.log("INVALID USER NAME OR PASSWORD")
+        }
+      
+      });
     }
   };
 
@@ -40,6 +54,7 @@ class Login extends Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
           handleOptionChange={this.handleOptionChange}
+          invalidLogin={this.state.invalidLogin}
         />
       </div>
     );

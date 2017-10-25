@@ -10,8 +10,12 @@
   margin: 25px 15px 25px 0;
 }
 
-.navbar-brand img{
-    height: -webkit-fill-available;
+.navbar-brand h4{
+    color: rgb(225, 253, 63);
+    font-family: 'Bangers', cursive;
+    text-shadow: 3px 8px 12px black;
+    margin-top: 0px;
+    letter-spacing: 2px;
 }
 
 .navbar{
@@ -22,6 +26,8 @@
     font-size: 100px;
     color: rgb(225, 253, 63);
     font-family: 'Bangers', cursive;
+    text-shadow: 3px 8px 12px black;
+    letter-spacing: 2px;
 }
 
 .lead {

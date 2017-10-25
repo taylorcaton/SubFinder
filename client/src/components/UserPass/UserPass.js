@@ -6,7 +6,12 @@ const UserPass = props => (
     <div className="row">
       <div className="col-md-offset-5 col-md-2">
         <div className="form-login">
-          <h4>Welcome back.</h4>
+        {console.log(props)}
+        {(props.invalidLogin) ? 
+          <h4 className='text-center text-danger'>Wrong User Name or Password</h4> 
+          :
+          <h4 className='text-center text-primary'>Welcome back.</h4>}
+          
 
           <input
             value={props.userName}
@@ -25,6 +30,8 @@ const UserPass = props => (
             className="form-control input-sm chat-input"
             placeholder="password"
           />
+
+          
 
           <div className="text-center">
             <div

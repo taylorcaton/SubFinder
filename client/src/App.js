@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
 import Login from "./pages/Login";
+import Sub from "./pages/Sub";
 
 
 const App = () => (
   <Router>
     <div>
-      
-      <Nav />
-      
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/sub" component={Sub} />        
         <Route component={Login} />
       </Switch>
     </div>
