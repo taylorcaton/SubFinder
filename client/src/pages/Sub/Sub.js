@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
+import SubJobs from "../../components/SubJobs"
 import API from "../../utils/API";
 
 class Sub extends Component {
 
   state = {
+    jobs: [],
     userName: ''
   };
 
@@ -13,6 +15,13 @@ class Sub extends Component {
     this.setState({
       userName: this.props.location.state.userName
     });
+    this.getSubs();
+  }
+
+  getSubs() {
+    API.getAllJobs().then(res => {
+      this.setState({jobs: res.data})
+    })
   }
 
   render() {
@@ -27,6 +36,7 @@ class Sub extends Component {
               </div>
             </div>
           </div>
+          <SubJobs jobs={this.state.jobs}/>
         </div>
       </div>
     );

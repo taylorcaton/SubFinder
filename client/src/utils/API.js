@@ -20,5 +20,9 @@ export default {
   loginSubstitute: function(name) {
     console.log(`Calling on the post route for the sub login route: Looking for ${name}`)
     return axios.post("/api/substitutes/login/" + name)
+  },
+  getAllJobs: function(){
+    console.log(`Calling the GET route to retrieve all available Jobs`);
+    return axios.get("/api/jobs")
   }
 };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import UserPass from "../../components/UserPass";
+import createHistory from 'history/createBrowserHistory'
 import API from "../../utils/API";
 
 class Login extends Component {
