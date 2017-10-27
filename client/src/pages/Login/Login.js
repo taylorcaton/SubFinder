@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import UserPass from "../../components/UserPass";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 class Login extends Component {
@@ -14,7 +13,7 @@ class Login extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
-    console.log(`Name: ${name}, Value: ${value} passed`)
+    console.log(`Name: ${name}, Value: ${value} passed`);
     this.setState({
       [name]: value
     });
@@ -24,21 +23,32 @@ class Login extends Component {
     event.preventDefault();
 
     console.log(`This is where the login call will go!`);
-    console.log(`Server is looking for a ${this.state.userType} named ${this.state.userName} using ${this.state.userPass}`);
+    console.log(
+      `Server is looking for a ${this.state.userType} named ${this.state
+        .userName} using ${this.state.userPass}`
+    );
 
-    if (this.state.userName && this.state.userPass && this.state.userType==='Sub') {
+    if (
+      this.state.userName &&
+      this.state.userPass &&
+      this.state.userType === "Sub"
+    ) {
       API.loginSubstitute(this.state.userName).then(res => {
-
         // console.log(res.data[0].password);
-        if(res.data.length > 0 && res.data[0].password === this.state.userPass){
-          this.setState({invalidLogin: false})
+        if (
+          res.data.length > 0 &&
+          res.data[0].password === this.state.userPass
+        ) {
+          this.setState({ invalidLogin: false });
           console.log("USER VERIFIED");
-          window.location = '/sub';
-        }else{
-          this.setState({invalidLogin: true})
-          console.log("INVALID USER NAME OR PASSWORD")
+          this.props.history.push({pathname: '/sub', state: {userName: this.state.userName}});
+
+          // this.props.history.push('/sub')
+          // window.location = '/sub';
+        } else {
+          this.setState({ invalidLogin: true });
+          console.log("INVALID USER NAME OR PASSWORD");
         }
-      
       });
     }
   };

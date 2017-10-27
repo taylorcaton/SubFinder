@@ -3,15 +3,30 @@ import Nav from "../../components/Nav";
 import API from "../../utils/API";
 
 class Sub extends Component {
-  
+
+  state = {
+    userName: ''
+  };
+
+  componentDidMount(){
+    console.log(this.props.location.state.userName)
+    this.setState({
+      userName: this.props.location.state.userName
+    });
+  }
+
   render() {
     return (
       <div>
         <Nav />
         <div>
-          <h1 className='text-center text-capitalize text-warning'>
-            This is the Sub Page
-          </h1>
+          <div className="container">
+            <div className="panel panel-default">
+              <div className="panel-body">
+                <h1 className="text-name">Welcome {this.state.userName}</h1>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

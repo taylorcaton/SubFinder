@@ -3,10 +3,10 @@ import React from "react";
 const Nav = () => (
   <nav className="navbar navbar-default navbar-inverse">
     <div className="navbar-header">
-      <a className="navbar-brand" href="/">
+      <div className="navbar-brand" >
         {/* <img className="responsive" src="/images/Sonar.png" alt="Logo" /> */}
         <h4 className='title'>SubFinder</h4>
-      </a>
+      </div>
     </div>
   </nav>
 );
