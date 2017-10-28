@@ -3,7 +3,7 @@ import React from "react";
 const UserPass = props => (
   <div>
     <div className="row">
-      <div className="col-md-offset-5 col-md-2">
+      <div className="col-md-6 col-md-offset-3">
         <div className="form-login">
         {console.log(props)}
         {(props.invalidLogin) ? 
