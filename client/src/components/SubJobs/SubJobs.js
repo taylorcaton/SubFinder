@@ -1,16 +1,25 @@
 import React from "react";
-import API from "../../utils/API";
 
-const Jumbotron = props => (
+const SubJobs = props => (
   <div className="container">
     <div className="panel panel-default">
       <div className="panel-body">
         {props.jobs.length ? (
           <div>
             {props.jobs.map(job => (
-              <p>
-                {job.teacher} by {job.date}
-              </p>
+              <div key={job._id}>
+                <div className="panel panel-default">
+                  <div className="panel-body">
+                    <div className="col-sm-4 text-center"><h4>{job.teacher}</h4></div>
+                    <div className="col-sm-4 text-center"><h4>{job.date}</h4></div>
+                    <div className="col-sm-4">
+                      <button type="button" className="btn btn-block btn-warning">
+                        Take Job?
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         ) : (
@@ -21,4 +30,4 @@ const Jumbotron = props => (
   </div>
 );
 
-export default Jumbotron;
+export default SubJobs;
