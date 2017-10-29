@@ -24,5 +24,10 @@ export default {
   getAllJobs: function(){
     console.log(`Calling the GET route to retrieve all available Jobs`);
     return axios.get("/api/jobs")
+  },
+  findAndUpdateJobByID: function(id,subName){
+    console.log(`Calling on the Job with id ${id} and updating as taken by ${subName}`)
+    return axios.post("/api/jobs/"+id+"/"+subName) 
   }
+
 };

@@ -7,10 +7,10 @@ router
   .get(jobsController.findAll)
   .post(jobsController.create);
 
-// Matches with "/api/substitutes"
+// Matches with "/api/jobs/:id"
 router
-  .route("/login/:name")
-  .post(jobsController.findOne)
+  .route("/:id/:subName")
+  .post(jobsController.update)
 
 // Matches with "/api/substitutes/:id"
 // router

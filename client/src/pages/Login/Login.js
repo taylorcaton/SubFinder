@@ -20,9 +20,7 @@ class Login extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
 
-    console.log(`This is where the login call will go!`);
     console.log(
       `Server is looking for a ${this.state.userType} named ${this.state
         .userName} using ${this.state.userPass}`

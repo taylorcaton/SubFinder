@@ -1,4 +1,5 @@
 import React from "react";
+import Moment from 'react-moment';
 
 const SubJobs = props => (
   <div className="container">
@@ -7,13 +8,24 @@ const SubJobs = props => (
         {props.jobs.length ? (
           <div>
             {props.jobs.map(job => (
+              job.filled ? (<div key={job._id} />):
               <div key={job._id}>
                 <div className="panel panel-default">
                   <div className="panel-body">
-                    <div className="col-sm-4 text-center"><h4>{job.teacher}</h4></div>
-                    <div className="col-sm-4 text-center"><h4>{job.date}</h4></div>
+                    <div className="col-sm-4 text-center">
+                      <h4>{job.teacher}</h4>
+                    </div>
+                    <div className="col-sm-4 text-center">
+                      <h4><Moment format="dddd, MMMM Do">{job.date}</Moment></h4>
+                    </div>
                     <div className="col-sm-4">
-                      <button type="button" className="btn btn-block btn-warning">
+                      <button
+                        type="button"
+                        className="btn btn-block btn-warning"
+                        onClick={() => {
+                          props.handleTakeJob(job._id, props.subName);
+                        }}
+                      >
                         Take Job?
                       </button>
                     </div>

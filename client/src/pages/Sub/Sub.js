@@ -18,9 +18,17 @@ class Sub extends Component {
     this.getSubs();
   }
 
-  getSubs() {
+  getSubs = () => {
     API.getAllJobs().then(res => {
       this.setState({jobs: res.data})
+    })
+  }
+
+  handleTakeJob = (id,subName) => {
+
+    API.findAndUpdateJobByID(id,subName).then(res => {
+      console.log(res);
+      this.getSubs();
     })
   }
 
@@ -36,7 +44,7 @@ class Sub extends Component {
               </div>
             </div>
           </div>
-          <SubJobs jobs={this.state.jobs}/>
+          <SubJobs jobs={this.state.jobs} handleTakeJob={this.handleTakeJob} subName={this.state.userName}/>
         </div>
       </div>
     );

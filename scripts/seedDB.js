@@ -68,15 +68,36 @@ const jobSeed = [
     sub: "",
     filled: false,
     absentDate: "",
-    date: new Date(Date.now())
+    date: new Date("November 29, 2017")
   },
   {
     teacher: "Brandy Caton",
     sub: "",
     filled: false,
     absentDate: "",
-    date: new Date(Date.now())
-  }
+    date: new Date("November 13, 2017")
+  },
+  {
+    teacher: "Valerie Frizzle",
+    sub: "",
+    filled: false,
+    absentDate: "",
+    date: new Date(Date.now)
+  },
+  {
+    teacher: "Severus Snape",
+    sub: "",
+    filled: false,
+    absentDate: "",
+    date: new Date("December 1, 2017")
+  },
+  {
+    teacher: "Edna Krabbapel",
+    sub: "",
+    filled: false,
+    absentDate: "",
+    date: new Date("December 14, 2017")
+  },
 ];
 
 db.Jobs

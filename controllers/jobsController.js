@@ -33,7 +33,13 @@ module.exports = {
   },
   update: function(req, res) {
     db.Jobs
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, {$set: {sub: req.params.subName, filled: true}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  reset: function(req, res) {
+    db.Jobs
+      .findOneAndUpdate({ _id: req.params.id }, {$set: {sub: '', filled: false}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
