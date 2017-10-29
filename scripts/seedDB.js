@@ -65,38 +65,23 @@ db.Teacher
 const jobSeed = [
   {
     teacher: "Taylor Caton",
-    sub: "",
-    filled: false,
-    absentDate: "",
-    date: new Date("November 29, 2017")
+    absentDate: new Date("November 29, 2017").getTime(),
   },
   {
     teacher: "Brandy Caton",
-    sub: "",
-    filled: false,
-    absentDate: "",
-    date: new Date("November 13, 2017")
+    absentDate: new Date("November 13, 2017").getTime(),
   },
   {
     teacher: "Valerie Frizzle",
-    sub: "",
-    filled: false,
-    absentDate: "",
-    date: new Date(Date.now)
+    absentDate: new Date(Date.now).getTime(),
   },
   {
     teacher: "Severus Snape",
-    sub: "",
-    filled: false,
-    absentDate: "",
-    date: new Date("December 1, 2017")
+    absentDate: new Date("December 1, 2017").getTime(),
   },
   {
     teacher: "Edna Krabbapel",
-    sub: "",
-    filled: false,
-    absentDate: "",
-    date: new Date("December 14, 2017")
+    absentDate: new Date("December 14, 2017").getTime(),
   },
 ];
 

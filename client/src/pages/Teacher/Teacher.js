@@ -1,20 +1,34 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
-import API from "../../utils/API";
+import CreateJob from "../../components/CreateJob";
+import API from "../../utils/API"; 
 
-class Sub extends Component {
-
+class Teacher extends Component {
   state = {
-    userName: ''
+    userName: "",
+    date: new Date().getTime(),
+    submitJob: false
   };
 
-  componentDidMount(){
-    console.log(this.props.location.state.userName)
+  componentDidMount() {
+    console.log(this.props.location.state.userName);
     this.setState({
       userName: this.props.location.state.userName
     });
   }
 
+  onChange = date => this.setState({ date: date.getTime() });
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(
+      `Lets create a JOB for ${this.state.userName} on ${this.state.date}`
+    );
+    API.saveJob(this.state).then(res => {
+      console.log(res);
+      this.setState({ submitJob: true });
+    });
+  };
 
   render() {
     return (
@@ -24,15 +38,30 @@ class Sub extends Component {
           <div className="container">
             <div className="panel panel-default">
               <div className="panel-body">
-                <h1 className="text-name">Welcome {this.state.userName}</h1>
+                <h1 className="text-name text-center">{this.state.userName}</h1>
               </div>
             </div>
           </div>
-          <p>Teacher Content</p>
+          {this.state.submitJob ? (
+            <div className="container">
+              <div className="panel panel-success">
+                <div className="panel-heading">
+                  <h4 className="text-center">Job Created!</h4>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div />
+          )}
+          <CreateJob
+            onChange={this.onChange}
+            date={this.state.date}
+            handleSubmit={this.handleSubmit}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default Sub;
+export default Teacher;

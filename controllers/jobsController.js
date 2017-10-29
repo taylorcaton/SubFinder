@@ -6,7 +6,7 @@ module.exports = {
     console.log(`FINDALL JOBS CALLED`);
     db.Jobs
       .find({})
-      .sort({ date: -1 })
+      .sort({ absentDate: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -26,8 +26,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(`CREATE CALLED`);
+    console.log(req.body);
     db.Jobs
-      .create(req.body)
+      .create({teacher: req.body.userName, absentDate: req.body.date})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

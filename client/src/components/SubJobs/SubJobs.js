@@ -16,7 +16,7 @@ const SubJobs = props => (
                       <h4>{job.teacher}</h4>
                     </div>
                     <div className="col-sm-4 text-center">
-                      <h4><Moment format="dddd, MMMM Do">{job.date}</Moment></h4>
+                      <h4><Moment format="dddd, MMMM Do">{job.absentDate}</Moment></h4>
                     </div>
                     <div className="col-sm-4">
                       <button
