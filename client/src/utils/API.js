@@ -21,6 +21,10 @@ export default {
     console.log(`Calling on the post route for the sub login route: Looking for ${name}`)
     return axios.post("/api/substitutes/login/" + name)
   },
+  loginTeacher: function(name) {
+    console.log(`Calling on the post route for the teacher login route: Looking for ${name}`)
+    return axios.post("/api/teachers/login/" + name)
+  },
   getAllJobs: function(){
     console.log(`Calling the GET route to retrieve all available Jobs`);
     return axios.get("/api/jobs")

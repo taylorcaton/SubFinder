@@ -48,6 +48,27 @@ class Login extends Component {
           console.log("INVALID USER NAME OR PASSWORD");
         }
       });
+    }else if (
+      this.state.userName &&
+      this.state.userPass &&
+      this.state.userType === "Teacher"
+    ){
+      API.loginTeacher(this.state.userName).then(res => {
+        if (
+          res.data.length > 0 &&
+          res.data[0].password === this.state.userPass
+        ) {
+          this.setState({ invalidLogin: false });
+          console.log("USER VERIFIED");
+          this.props.history.push({pathname: '/teacher', state: {userName: this.state.userName}});
+
+          // this.props.history.push('/sub')
+          // window.location = '/sub';
+        } else {
+          this.setState({ invalidLogin: true });
+          console.log("INVALID USER NAME OR PASSWORD");
+        }
+      })
     }
   };
 
