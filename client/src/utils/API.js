@@ -25,6 +25,10 @@ export default {
     );
     return axios.post("/api/teachers/login/" + name);
   },
+  getAllTeachers: function() {
+    console.log(`Calling the GET route to retrieve all available Jobs`);
+    return axios.get("/api/teachers");
+  },
   getAllJobs: function() {
     console.log(`Calling the GET route to retrieve all available Jobs`);
     return axios.get("/api/jobs");
@@ -35,9 +39,14 @@ export default {
     );
     return axios.post("/api/jobs/" + id + "/" + subName);
   },
-  // Saves a book to the database
+  // Saves a job to the database
   saveJob: function(jobData) {
     console.log(`Calling on the saveJob Route with ${jobData.userName} & ${jobData.date}`)
     return axios.post("/api/jobs", jobData);
-  }
+  },
+  // Removes a job to the database
+  removeJob: function(id) {
+    console.log(`Calling on the removeJob Route with id: ${id}`)
+    return axios.delete("/api/jobs/" + id);
+  },
 };

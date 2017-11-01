@@ -12,11 +12,11 @@ router
   .route("/:id/:subName")
   .post(jobsController.update)
 
-// Matches with "/api/substitutes/:id"
-// router
-//   .route("/:id")
-//   .get(substitutesController.findById)
-//   .put(substitutesController.update)
-//   .delete(substitutesController.remove);
+// Matches with "/api/jobs/:id"
+router
+  .route("/:id")
+  // .get(jobsController.findById)
+  // .put(jobsController.update)
+  .delete(jobsController.remove);
 
 module.exports = router;

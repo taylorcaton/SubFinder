@@ -3,10 +3,10 @@ const db = require("../models");
 // Defining methods for the substitutesController
 module.exports = {
   findAll: function(req, res) {
-    console.log(`FINDALL CALLED: Looking for ${req.body.userName}`);
+    console.log(`FINDALL TEACHERS CALLED`);
     db.Teacher
       .find({})
-      .sort({ date: -1 })
+      .sort({ name: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
