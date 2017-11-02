@@ -22,7 +22,7 @@ const ListSubs_ADMIN = props => (
                         type="button"
                         className="btn btn-block btn-danger"
                         onClick={() => {
-                          props.handleEditSub(sub._id);
+                          props.showModal("Sub", sub._id);
                         }}
                       >
                         Edit Substitute?

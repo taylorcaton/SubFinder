@@ -22,7 +22,7 @@ const ListTeachers_ADMIN = props => (
                         type="button"
                         className="btn btn-block btn-danger"
                         onClick={() => {
-                          props.handleEditTeacher(teacher._id);
+                          props.showModal("Teacher", teacher._id);
                         }}
                       >
                         Edit Teacher?

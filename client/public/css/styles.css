@@ -22,6 +22,14 @@
     margin-bottom: 0px;
 }
 
+.input-group{
+    margin: 15px 0px;
+}
+
+.modal-container{
+    width: fit-content;
+}
+
 .jumbotron h1{
     font-size: 100px;
     color: rgb(225, 253, 63);

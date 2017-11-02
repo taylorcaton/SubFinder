@@ -12,11 +12,11 @@ router
   .route("/login/:name")
   .post(teachersController.findOne)
 
-// Matches with "/api/substitutes/:id"
-// router
-//   .route("/:id")
-//   .get(substitutesController.findById)
-//   .put(substitutesController.update)
-//   .delete(substitutesController.remove);
+// Matches with "/api/teachers/:id"
+router
+  .route("/:id")
+  .get(teachersController.findById)
+  .put(teachersController.update)
+  .delete(teachersController.remove);
 
 module.exports = router;

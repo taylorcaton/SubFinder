@@ -13,9 +13,9 @@ const ListJobs_ADMIN = props => (
                   <div className="panel-body">
                     <div className="col-sm-3 text-left">
                       {job.filled ? (
-                        <h4>Filled by {job.subName}</h4>
+                        <h4 className='text-success'>Filled by {job.sub}</h4>
                       ) : (
-                        <h4>Need a Sub</h4>
+                        <h4 className='text-danger'>Need a Sub</h4>
                       )}
                     </div>
                     <div className="col-sm-3 text-left">

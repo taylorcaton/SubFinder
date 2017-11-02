@@ -13,10 +13,10 @@ router
   .post(substitutesController.findOne)
 
 // Matches with "/api/substitutes/:id"
-// router
-//   .route("/:id")
-//   .get(substitutesController.findById)
-//   .put(substitutesController.update)
-//   .delete(substitutesController.remove);
+router
+  .route("/:id")
+  .get(substitutesController.findById)
+  .put(substitutesController.update)
+  .delete(substitutesController.remove);
 
 module.exports = router;

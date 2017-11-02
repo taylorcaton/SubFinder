@@ -25,6 +25,10 @@ export default {
     );
     return axios.post("/api/teachers/login/" + name);
   },
+  // Gets the book with the given id
+  getTeacher: function(id) {
+    return axios.get("/api/teachers/" + id);
+  },
   getAllTeachers: function() {
     console.log(`Calling the GET route to retrieve all available Jobs`);
     return axios.get("/api/teachers");
