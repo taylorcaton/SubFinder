@@ -44,6 +44,24 @@ class Admin extends Component {
     this.setState({editObj: newState});
   };
 
+  handleFormSubmit = event => {
+    
+    console.log(`Updating a ${this.state.editType} with the id ${this.state.editObj._id}`);
+    if(this.state.editType === 'Teacher'){
+      API.findAndUpdateTeacherByID(this.state.editObj).then(res => {
+        console.log(res.data);
+        this.loadTeachers();
+        this.hideModal();
+      })
+    }else if(this.state.editType === 'Sub'){
+      API.findAndUpdateSubstituteByID(this.state.editObj).then(res => {
+        console.log(res.data);
+        this.loadSubs();
+        this.hideModal();
+      })
+    }
+  }
+
   hideModal = () => {
     this.refs.modal.hide();
   };
@@ -187,7 +205,7 @@ class Admin extends Component {
                 <div className="btn-group" role="group" aria-label="...">
                   <button
                     className="btn btn-success btn-lg"
-                    onClick={() => this.saveInfo()}
+                    onClick={() => this.handleFormSubmit()}
                   >
                     Save
                   </button>
