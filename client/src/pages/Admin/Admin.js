@@ -3,6 +3,7 @@ import Nav from "../../components/Nav";
 import ListJobs from "../../components/ListJobs_ADMIN";
 import ListTeachers from "../../components/ListTeachers_ADMIN";
 import ListSubs from "../../components/ListSubs_ADMIN";
+import Create from "../../components/CreateTeacherSub";
 import API from "../../utils/API";
 import Modal from "reboron/OutlineModal";
 
@@ -17,7 +18,9 @@ class Admin extends Component {
     subs: [],
     date: new Date().getTime(),
     editObj: {},
-    editType: ""
+    editType: "",
+    createObj: {},
+    createType: '',
   };
 
   showModal = (type, id) => {
@@ -44,6 +47,30 @@ class Admin extends Component {
     this.setState({editObj: newState});
   };
 
+  handleCreateChange = event => {
+    const { name, value } = event.target;
+    console.log(`Name: ${name}, Value: ${value} passed`);
+    this.setState({createObj: {...this.state.createObj, [name]: value} });
+  };
+
+  create = () => {
+    if(this.state.createType === "Teacher"){
+      API.createTeacher(this.state.createObj).then(res =>{
+        this.loadTeachers();
+        this.resetCreateObj();
+      })
+    }else if(this.state.createType === "Substitute"){
+      API.createSubstitute(this.state.createObj).then(res => {
+        this.loadSubs();
+        this.resetCreateObj();
+      })
+    }
+  }
+
+  resetCreateObj = () => {
+    this.setState({createObj: {name:'', password:'', phonenum:''}, createType: ''})
+  }
+
   handleFormSubmit = event => {
     
     console.log(`Updating a ${this.state.editType} with the id ${this.state.editObj._id}`);
@@ -55,6 +82,23 @@ class Admin extends Component {
       })
     }else if(this.state.editType === 'Sub'){
       API.findAndUpdateSubstituteByID(this.state.editObj).then(res => {
+        console.log(res.data);
+        this.loadSubs();
+        this.hideModal();
+      })
+    }
+  }
+  
+  handleFormSubmitDelete = (event) => {
+    console.log(`Deleting a ${this.state.editType} with the id ${this.state.editObj._id}`);
+    if(this.state.editType === 'Teacher'){
+      API.deleteTeacher(this.state.editObj._id).then(res => {
+        console.log(res.data);
+        this.loadTeachers();
+        this.hideModal();
+      })
+    }else if(this.state.editType === 'Sub'){
+      API.deleteSubstitute(this.state.editObj._id).then(res => {
         console.log(res.data);
         this.loadSubs();
         this.hideModal();
@@ -100,6 +144,11 @@ class Admin extends Component {
     });
   };
 
+  handleRadioChange = event => {
+    console.log(event.target.value);
+    this.setState({createType: event.target.value})
+  }
+
   handleSubmit = event => {};
 
   render() {
@@ -107,7 +156,7 @@ class Admin extends Component {
       <div>
         <Nav />
         <div>
-          <div className="container">
+          <div className="container admin-window">
             <div role="tabpanel">
               <div className="panel with-nav-tabs panel-default">
                 <div className="panel-heading">
@@ -125,6 +174,11 @@ class Admin extends Component {
                     <li>
                       <a href="#tab3default" data-toggle="tab">
                         <h4>Substitutes</h4>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#tab4default" data-toggle="tab">
+                        <h4>Create Teacher / Sub</h4>
                       </a>
                     </li>
                   </ul>
@@ -147,6 +201,15 @@ class Admin extends Component {
                       <ListSubs
                         subs={this.state.subs}
                         showModal={this.showModal}
+                      />
+                    </div>
+                    <div className="tab-pane fade" id="tab4default">
+                      <Create 
+                        createObj={this.state.createObj}
+                        createType={this.state.createType}
+                        handleCreateChange={this.handleCreateChange}
+                        handleRadioChange={this.handleRadioChange}
+                        create={this.create}
                       />
                     </div>
                   </div>
@@ -202,7 +265,7 @@ class Admin extends Component {
             </div>
             <div className="row">
               <div className="col-sm-12">
-                <div className="btn-group" role="group" aria-label="...">
+                <div className="btn-group modal-btns" role="group" aria-label="...">
                   <button
                     className="btn btn-success btn-lg"
                     onClick={() => this.handleFormSubmit()}
@@ -210,10 +273,16 @@ class Admin extends Component {
                     Save
                   </button>
                   <button
-                    className="btn btn-danger btn-lg"
+                    className="btn btn-warning btn-lg"
                     onClick={() => this.hideModal()}
                   >
                     Cancel
+                  </button>
+                  <button
+                    className="btn btn-danger btn-lg"
+                    onClick={() => this.handleFormSubmitDelete()}
+                  >
+                    DELETE {(this.state.editType).toUpperCase()}
                   </button>
                 </div>
               </div>

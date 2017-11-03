@@ -66,6 +66,8 @@ const jobSeed = [
   {
     teacher: "Taylor Caton",
     absentDate: new Date("November 29, 2017").getTime(),
+    filled: true,
+    sub: 'Norm MacDonald'
   },
   {
     teacher: "Brandy Caton",

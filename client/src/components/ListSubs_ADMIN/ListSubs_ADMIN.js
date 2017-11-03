@@ -3,7 +3,7 @@ import Moment from "react-moment";
 
 const ListSubs_ADMIN = props => (
   <div>
-    <div className="panel panel-default">
+    <div className="panel">
       <div className="panel-body">
         {props.subs.length ? (
           <div>

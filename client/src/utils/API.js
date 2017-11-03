@@ -13,6 +13,10 @@ export default {
   deleteSubstitute: function(id) {
     return axios.delete("/api/substitutes/" + id);
   },
+  createSubstitute: function(subObj) {
+    console.log(`Calling the POST route to create a teacher ${subObj.name}`);
+    return axios.post("/api/substitutes", subObj);
+  },
   loginSubstitute: function(name) {
     console.log(
       `Calling on the post route for the sub login route: Looking for ${name}`
@@ -36,8 +40,15 @@ export default {
     return axios.get("/api/teachers/" + id);
   },
   getAllTeachers: function() {
-    console.log(`Calling the GET route to retrieve all available Jobs`);
+    console.log(`Calling the GET route to retrieve all available Teachers`);
     return axios.get("/api/teachers");
+  },
+  createTeacher: function(teacherObj) {
+    console.log(`Calling the POST route to create a teacher ${teacherObj.name}`);
+    return axios.post("/api/teachers", teacherObj);
+  },
+  deleteTeacher: function(id) {
+    return axios.delete("/api/teachers/" + id);
   },
   findAndUpdateTeacherByID: function(teacherObj) {
     console.log(

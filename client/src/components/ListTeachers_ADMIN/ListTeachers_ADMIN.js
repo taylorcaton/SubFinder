@@ -3,7 +3,7 @@ import Moment from "react-moment";
 
 const ListTeachers_ADMIN = props => (
   <div>
-    <div className="panel panel-default">
+    <div className="panel">
       <div className="panel-body">
         {props.teachers.length ? (
           <div>
