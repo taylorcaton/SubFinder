@@ -19,7 +19,7 @@ class Admin extends Component {
     date: new Date().getTime(),
     editObj: {},
     editType: "",
-    createObj: {},
+    createObj: {name:'', password:'', phonenum:''},
     createType: '',
   };
 
@@ -49,6 +49,7 @@ class Admin extends Component {
 
   handleCreateChange = event => {
     const { name, value } = event.target;
+    console.log(event.target);
     console.log(`Name: ${name}, Value: ${value} passed`);
     this.setState({createObj: {...this.state.createObj, [name]: value} });
   };
@@ -178,7 +179,7 @@ class Admin extends Component {
                     </li>
                     <li>
                       <a href="#tab4default" data-toggle="tab">
-                        <h4>Create Teacher / Sub</h4>
+                        <h4>Create</h4>
                       </a>
                     </li>
                   </ul>

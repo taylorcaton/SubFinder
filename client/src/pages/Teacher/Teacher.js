@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import CreateJob from "../../components/CreateJob";
 import API from "../../utils/API"; 
+import "./Teacher.css"
 
 class Teacher extends Component {
   state = {
@@ -36,9 +37,9 @@ class Teacher extends Component {
         <Nav />
         <div>
           <div className="container">
-            <div className="panel panel-default">
+            <div className="panel panel-default text-name">
               <div className="panel-body">
-                <h1 className="text-name text-center">{this.state.userName}</h1>
+                <h1 className="text-center">{this.state.userName}</h1>
               </div>
             </div>
           </div>

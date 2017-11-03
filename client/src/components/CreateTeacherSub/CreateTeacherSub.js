@@ -27,9 +27,9 @@ const CreateTeacherSub = props => (
             <input
               type="text"
               name="name"
-              className="form-control"
+              className="form-control createInput"
               required="required"
-              onChange={props.handleCreateChange}
+              onChange={(event) => props.handleCreateChange(event)}
               value={props.createObj.name}
             />
           </div>
@@ -38,7 +38,7 @@ const CreateTeacherSub = props => (
             <input
               type="text"
               name="password"
-              className="form-control"
+              className="form-control createInput"
               required="required"
               onChange={props.handleCreateChange}
               value={props.createObj.password}
@@ -49,7 +49,7 @@ const CreateTeacherSub = props => (
             <input
               type="text"
               name="phonenum"
-              className="form-control"
+              className="form-control createInput"
               required="required"
               onChange={props.handleCreateChange}
               value={props.createObj.phonenum}

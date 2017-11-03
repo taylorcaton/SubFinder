@@ -3,7 +3,7 @@ import React from "react";
 const UserPass = props => (
   <div>
     <div className="row">
-      <div className="col-md-6 col-md-offset-3">
+      <div className="col-md-4 col-md-offset-4">
         <div className="form-login">
         {console.log(props)}
         {(props.invalidLogin) ? 
@@ -65,7 +65,7 @@ const UserPass = props => (
             <div
               disabled={!(props.userName && props.userPass && props.userType)}
               onClick={props.handleFormSubmit}
-              className="btn btn-danger btn-lg"
+              className="btn btn-danger btn-lg login-button"
             >
               <i className="fa fa-life-ring" aria-hidden="true" /> Login
             </div>

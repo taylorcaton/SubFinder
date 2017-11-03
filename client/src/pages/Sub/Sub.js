@@ -38,9 +38,9 @@ class Sub extends Component {
         <Nav />
         <div>
           <div className="container">
-            <div className="panel panel-default">
+            <div className="panel panel-default text-name">
               <div className="panel-body">
-                <h1 className="text-name">Welcome {this.state.userName}</h1>
+                <h1 className="text-center">{this.state.userName}</h1>
               </div>
             </div>
           </div>
