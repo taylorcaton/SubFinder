@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import CreateJob from "../../components/CreateJob";
-import API from "../../utils/API"; 
-import "./Teacher.css"
+import API from "../../utils/API";
+import TWILIO from "../../utils/TWILIO";
+// import Moment from "react-moment";
+import "./Teacher.css";
 
 class Teacher extends Component {
   state = {
@@ -20,6 +22,24 @@ class Teacher extends Component {
 
   onChange = date => this.setState({ date: date.getTime() });
 
+  formatDate = (date) =>{
+
+    var d = new Date(date); // The 0 there is the key, which sets the date to the epoch
+
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+  
+    var day = d.getDate();
+    var monthIndex = d.getMonth();
+    var year = d.getFullYear();
+  
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     console.log(
@@ -28,6 +48,10 @@ class Teacher extends Component {
     API.saveJob(this.state).then(res => {
       console.log(res);
       this.setState({ submitJob: true });
+      TWILIO.sendText({ 
+        phonenum: "9802532643", 
+        msg: `${this.state.userName} is requesting a sub on ${this.formatDate(this.state.date)}`, 
+      });
     });
   };
 
@@ -45,7 +69,7 @@ class Teacher extends Component {
           </div>
           {this.state.submitJob ? (
             <div className="container">
-              <div className="panel panel-success">
+              <div className="panel panel-success job-created">
                 <div className="panel-heading">
                   <h4 className="text-center">Job Created!</h4>
                 </div>

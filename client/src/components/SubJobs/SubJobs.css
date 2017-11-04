@@ -1,0 +1,16 @@
+.job-select{
+    background: rgb(51, 51, 51);
+    color: #e5ffff;
+    border-color: rgb(225, 253, 63);
+    border-radius: 15px;
+}
+
+.job-select h3{
+    color: rgb(225, 253, 63);
+}
+
+.job-panel{
+    background: rgb(34, 34, 34);
+    border: none;
+    border-radius: 15px;
+}

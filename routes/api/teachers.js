@@ -7,7 +7,7 @@ router
   .get(teachersController.findAll)
   .post(teachersController.create);
 
-// Matches with "/api/teachers"
+// Matches with "/api/teachers/login/:name"
 router
   .route("/login/:name")
   .post(teachersController.findOne)

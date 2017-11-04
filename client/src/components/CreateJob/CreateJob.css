@@ -1,0 +1,24 @@
+.teacher-select{
+    background: rgb(34, 34, 34);
+    color: #e5ffff;
+    border-color: rgb(225, 253, 63);
+    border-radius: 15px;
+}
+
+.teacher-select h3{
+    color: rgb(225, 253, 63);
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+    color: #e5ffff;
+}
+
+.DayPicker-Day--disabled {
+    color: #dce0e0;
+    background-color: #555;
+}
+
+.DayPicker-Day--today {
+    color: rgb(225, 253, 63) !important;
+}

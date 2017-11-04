@@ -1,5 +1,4 @@
 import React from "react";
-import Moment from "react-moment";
 
 const ListTeachers_ADMIN = props => (
   <div>
