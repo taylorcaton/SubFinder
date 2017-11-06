@@ -17,7 +17,7 @@ class Admin extends Component {
     teachers: [],
     subs: [],
     date: new Date().getTime(),
-    editObj: {},
+    editObj: {name:'', password:'', phonenum:''},
     editType: "",
     createObj: {name:'', password:'', phonenum:''},
     createType: '',

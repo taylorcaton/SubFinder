@@ -2,11 +2,11 @@ const router = require("express").Router();
 const twilio = require("twilio");
 const accountSid = "ACa0bc48acb99856f8f044e9e07bbefbef"; // Your Account SID from www.twilio.com/console
 const authToken = "d50556ebf53bc91c3c0a83eb78c5a01d"; // Your Auth Token from www.twilio.com/console
+const client = new twilio(accountSid, authToken);
 
 // Matches with "/api/twilio/"
 router.route("/").post((req, res) => {
-  var client = new twilio(accountSid, authToken);
-
+  
   client.messages
     .create({
       body: req.body.msg,

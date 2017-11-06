@@ -48,10 +48,18 @@ class Teacher extends Component {
     API.saveJob(this.state).then(res => {
       console.log(res);
       this.setState({ submitJob: true });
-      TWILIO.sendText({ 
-        phonenum: "9802532643", 
-        msg: `${this.state.userName} is requesting a sub on ${this.formatDate(this.state.date)}`, 
-      });
+      API.getSubstitutes().then(res => {
+        const subs = res.data;
+        for(let i=0; i<subs.length; i++){
+          TWILIO.sendText({ 
+            phonenum: subs[i].phonenum, 
+            msg: `${this.state.userName} is requesting a sub on ${this.formatDate(this.state.date)}`, 
+          }).then(res => {
+            console.log(res);
+          });
+        }
+      })
+      
     });
   };
 

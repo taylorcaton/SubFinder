@@ -12,13 +12,13 @@ const subSeed = [
   {
     name: "Bill Brasky",
     password: "12345",
-    phonenum: "919-362-7365",
+    phonenum: "980-253-2643",
     date: new Date(Date.now())
   },
   {
     name: "Norm MacDonald",
     password: "12345",
-    phonenum: "919-362-7365",
+    phonenum: "980-253-2643",
     date: new Date(Date.now())
   }
 ];
