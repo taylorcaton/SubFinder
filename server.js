@@ -20,7 +20,7 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/SubFinder",
   {
     useMongoClient: true
-  }
+  } 
 );
 
 // Start the API server
