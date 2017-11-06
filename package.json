@@ -19,6 +19,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "server": "node server.js",
+    "build": "node scripts/build.js",
     "client": "node scripts/start-client.js",
     "seed": "node scripts/seedDB.js"
   },
