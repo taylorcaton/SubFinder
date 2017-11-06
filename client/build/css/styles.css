@@ -1,0 +1,88 @@
+/* .navbar-brand {
+  height: 80px;
+} */
+.nav > li > a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+
+.navbar-brand h4 {
+  color: rgb(225, 253, 63);
+  font-family: "Bangers", cursive;
+  text-shadow: 3px 8px 12px black;
+  margin-top: 0px;
+  letter-spacing: 2px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.admin-window {
+  margin-top: 10px;
+}
+
+.login-button {
+  margin-top: 10px;
+}
+
+/* [type="radio"] {
+  display: none;
+} */
+
+.modal-btns {
+  margin-bottom: 15px;
+}
+
+.input-group {
+  margin: 15px 0px;
+}
+
+.modal-container {
+  width: fit-content;
+}
+
+.jumbotron h1 {
+  font-size: 100px;
+  color: rgb(225, 253, 63);
+  font-family: "Bangers", cursive;
+  text-shadow: 3px 8px 12px black;
+  letter-spacing: 2px;
+}
+
+.lead {
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+
+body {
+  background-image: url("../images/darkOcean.jpg");
+  background-size: cover;
+  /* background-position-y: center; */
+  font-family: "Open Sans", sans-serif;
+}
+.jumbotron {
+  background: none;
+}
+
+.form-login {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  border-color: #d2d2d2;
+  border-width: 5px;
+  box-shadow: 0 1px 0 rgb(225, 253, 63);
+  color: whitesmoke;
+}
+
+.form-login input {
+  margin-bottom: 10px;
+}
