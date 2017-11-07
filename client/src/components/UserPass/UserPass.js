@@ -24,13 +24,11 @@ const UserPass = props => (
           <input
             value={props.userPass}
             onChange={props.handleInputChange}
-            type="text"
+            type="password"
             name="userPass"
             className="form-control input-sm chat-input"
             placeholder="password"
-          />
-
-          
+          /> 
 
           <div className="text-center">
             <div
