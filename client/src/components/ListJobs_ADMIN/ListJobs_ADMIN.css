@@ -1,0 +1,11 @@
+.ADMIN-jobs-panel{
+    background: rgb(51, 51, 51);
+    color: #e5ffff;
+    border: none;
+}
+
+.job-panel{
+    background: rgb(34, 34, 34);
+    border: none;
+    border-radius: 15px;
+}

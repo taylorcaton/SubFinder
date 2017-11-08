@@ -1,0 +1,33 @@
+.admin-window{
+    background: rgb(51, 51, 51);
+    color: #e5ffff;
+    border-color: rgb(225, 253, 63);
+    border-radius: 15px;
+}
+
+.admin-window .panel-default{
+    background: rgb(51, 51, 51);
+    color: #e5ffff;
+    border: none;
+}
+
+.admin-window .panel-heading{
+    background: rgb(51, 51, 51);
+    color: #e5ffff;
+    border: none;
+}
+
+.admin-window .nav-tabs{
+    background: rgb(34, 34, 34);
+    border: none;
+    border-radius: 15px;
+}
+
+li.active a{
+    background-color: rgb(225, 253, 63) !important;
+    border-radius: 15px;
+}
+
+li.active h4{
+    font-weight: bold;
+}

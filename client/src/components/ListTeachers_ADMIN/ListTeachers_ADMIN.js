@@ -1,14 +1,15 @@
 import React from "react";
+import "./ListTeachers_ADMIN.css"
 
 const ListTeachers_ADMIN = props => (
   <div>
-    <div className="panel">
+    <div className="panel ADMIN-teachers-panel">
       <div className="panel-body">
         {props.teachers.length ? (
           <div>
             {props.teachers.map(teacher => (
               <div key={teacher._id}>
-                <div className="panel panel-danger">
+                <div className="panel panel-danger teacher-panel">
                   <div className="panel-body">
                     <div className="col-sm-4 text-left">
                       <h4>{teacher.name}</h4>

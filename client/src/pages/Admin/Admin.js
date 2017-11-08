@@ -6,6 +6,7 @@ import ListSubs from "../../components/ListSubs_ADMIN";
 import Create from "../../components/CreateTeacherSub";
 import API from "../../utils/API";
 import Modal from "reboron/OutlineModal";
+import "./Admin.css"
 
 const modalStyle = {
   width: "70%"

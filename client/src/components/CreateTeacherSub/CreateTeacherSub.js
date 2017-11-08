@@ -36,7 +36,7 @@ const CreateTeacherSub = props => (
           <div className="input-group">
             <label>Password</label>
             <input
-              type="text"
+              type="password"
               name="password"
               className="form-control createInput"
               required="required"

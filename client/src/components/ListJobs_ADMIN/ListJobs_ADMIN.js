@@ -1,15 +1,16 @@
 import React from "react";
 import Moment from "react-moment"
+import "./ListJobs_ADMIN.css"
 
 const ListJobs_ADMIN = props => (
   <div>
-    <div className="panel">
+    <div className="panel ADMIN-jobs-panel">
       <div className="panel-body">
         {props.jobs.length ? (
           <div>
             {props.jobs.map(job => (
               <div key={job._id}>
-                <div className="panel panel-danger">
+                <div className="panel panel-danger job-panel">
                   <div className="panel-body">
                     <div className="col-sm-3 text-left">
                       {job.filled ? (
