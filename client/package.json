@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-calendar": "^2.2.0",

@@ -6,7 +6,7 @@ import ListSubs from "../../components/ListSubs_ADMIN";
 import Create from "../../components/CreateTeacherSub";
 import API from "../../utils/API";
 import Modal from "reboron/OutlineModal";
-import "./Admin.css"
+import "./Admin.css";
 
 const modalStyle = {
   width: "70%"
@@ -18,10 +18,10 @@ class Admin extends Component {
     teachers: [],
     subs: [],
     date: new Date().getTime(),
-    editObj: {name:'', password:'', phonenum:''},
+    editObj: { name: "", password: "", phonenum: "" },
     editType: "",
-    createObj: {name:'', password:'', phonenum:''},
-    createType: '',
+    createObj: { name: "", password: "", phonenum: "" },
+    createType: ""
   };
 
   showModal = (type, id) => {
@@ -31,12 +31,12 @@ class Admin extends Component {
         this.setState({ editType: type });
         this.refs.modal.show();
       });
-    }else if(type === "Sub"){
+    } else if (type === "Sub") {
       API.getSubstitute(id).then(res => {
         this.setState({ editObj: res.data });
         this.setState({ editType: type });
         this.refs.modal.show();
-      })
+      });
     }
   };
 
@@ -45,68 +45,78 @@ class Admin extends Component {
     console.log(`Name: ${name}, Value: ${value} passed`);
     let newState = this.state.editObj;
     newState[name] = value;
-    this.setState({editObj: newState});
+    this.setState({ editObj: newState });
   };
 
   handleCreateChange = event => {
     const { name, value } = event.target;
     console.log(event.target);
     console.log(`Name: ${name}, Value: ${value} passed`);
-    this.setState({createObj: {...this.state.createObj, [name]: value} });
+    this.setState({ createObj: { ...this.state.createObj, [name]: value } });
   };
 
   create = () => {
-    if(this.state.createType === "Teacher"){
-      API.createTeacher(this.state.createObj).then(res =>{
+    //bcrypt goes here:::
+
+    if (this.state.createType === "Teacher") {
+      API.createTeacher(this.state.createObj).then(res => {
         this.loadTeachers();
         this.resetCreateObj();
-      })
-    }else if(this.state.createType === "Substitute"){
+      });
+    } else if (this.state.createType === "Substitute") {
       API.createSubstitute(this.state.createObj).then(res => {
         this.loadSubs();
         this.resetCreateObj();
-      })
+      });
     }
-  }
+  };
 
   resetCreateObj = () => {
-    this.setState({createObj: {name:'', password:'', phonenum:''}, createType: ''})
-  }
+    this.setState({
+      createObj: { name: "", password: "", phonenum: "" },
+      createType: ""
+    });
+  };
 
   handleFormSubmit = event => {
-    
-    console.log(`Updating a ${this.state.editType} with the id ${this.state.editObj._id}`);
-    if(this.state.editType === 'Teacher'){
+    console.log(
+      `Updating a ${this.state.editType} with the id ${this.state.editObj._id}`
+    );
+
+    // Store hash in your password DB.
+    if (this.state.editType === "Teacher") {
       API.findAndUpdateTeacherByID(this.state.editObj).then(res => {
         console.log(res.data);
         this.loadTeachers();
         this.hideModal();
-      })
-    }else if(this.state.editType === 'Sub'){
+      });
+    } else if (this.state.editType === "Sub") {
       API.findAndUpdateSubstituteByID(this.state.editObj).then(res => {
         console.log(res.data);
         this.loadSubs();
         this.hideModal();
-      })
+      });
     }
-  }
-  
-  handleFormSubmitDelete = (event) => {
-    console.log(`Deleting a ${this.state.editType} with the id ${this.state.editObj._id}`);
-    if(this.state.editType === 'Teacher'){
+  };
+
+  handleFormSubmitDelete = event => {
+    console.log(
+      `Deleting a ${this.state.editType} with the id ${this.state.editObj._id}`
+    );
+    if (this.state.editType === "Teacher") {
       API.deleteTeacher(this.state.editObj._id).then(res => {
         console.log(res.data);
         this.loadTeachers();
         this.hideModal();
-      })
-    }else if(this.state.editType === 'Sub'){
+      });
+    } else if (this.state.editType === "Sub") {
       API.deleteSubstitute(this.state.editObj._id).then(res => {
         console.log(res.data);
         this.loadSubs();
         this.hideModal();
-      })
+      });
     }
-  }
+  };
 
   hideModal = () => {
     this.refs.modal.hide();
@@ -148,8 +158,8 @@ class Admin extends Component {
 
   handleRadioChange = event => {
     console.log(event.target.value);
-    this.setState({createType: event.target.value})
-  }
+    this.setState({ createType: event.target.value });
+  };
 
   handleSubmit = event => {};
 
@@ -206,7 +216,7 @@ class Admin extends Component {
                       />
                     </div>
                     <div className="tab-pane fade" id="tab4default">
-                      <Create 
+                      <Create
                         createObj={this.state.createObj}
                         createType={this.state.createType}
                         handleCreateChange={this.handleCreateChange}
@@ -232,7 +242,7 @@ class Admin extends Component {
                     type="text"
                     className="form-control"
                     value={this.state.editObj.name}
-                    name= "name"
+                    name="name"
                     aria-describedby="basic-addon1"
                     onChange={this.handleInputChange}
                   />
@@ -267,7 +277,11 @@ class Admin extends Component {
             </div>
             <div className="row">
               <div className="col-sm-12">
-                <div className="btn-group modal-btns" role="group" aria-label="...">
+                <div
+                  className="btn-group modal-btns"
+                  role="group"
+                  aria-label="..."
+                >
                   <button
                     className="btn btn-success btn-lg"
                     onClick={() => this.handleFormSubmit()}
@@ -284,7 +298,7 @@ class Admin extends Component {
                     className="btn btn-danger btn-lg"
                     onClick={() => this.handleFormSubmitDelete()}
                   >
-                    DELETE {(this.state.editType).toUpperCase()}
+                    DELETE {this.state.editType.toUpperCase()}
                   </button>
                 </div>
               </div>
