@@ -5,7 +5,7 @@ Teachers post jobs, Substitutes claim jobs, updates are sent out via texts.
 
 Link: http://sub-finder.herokuapp.com/
 
-![Login Screen](https://taylorcaton.github.io/img/portfolio/sub-finder.png "SubFinder Login Screen")
+![Login Screen](https://github.com/taylorcaton/SubFinder/blob/master/client/public/images/Login.PNG "SubFinder Login Screen")
 
 Credits: 
 * [React JS](https://reactjs.org/)
