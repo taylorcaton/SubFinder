@@ -1,5 +1,7 @@
 # SubFinder
-Helps teachers find available substitutes who have an emergency or are too sick to call.
+A simple MERN app that helps teachers find available substitutes who have an emergency or are too sick to call.
+
+Teachers post jobs, Substitutes claim jobs, updates are sent out via texts.
 
 Link: http://sub-finder.herokuapp.com/
 
